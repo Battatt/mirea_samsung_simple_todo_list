@@ -23,6 +23,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -90,7 +91,8 @@ fun TaskCard(
     onCheckedChange: (Int) -> Unit,
 ) {
     Card(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier
+            .fillMaxWidth(),
         onClick = {
             onTaskClick(task)
         },
@@ -105,6 +107,8 @@ fun TaskCard(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Checkbox(
+                modifier = Modifier
+                    .testTag("task_checkbox_${task.id}"),
                 checked = task.isCompleted,
                 onCheckedChange = {
                     onCheckedChange(task.id)

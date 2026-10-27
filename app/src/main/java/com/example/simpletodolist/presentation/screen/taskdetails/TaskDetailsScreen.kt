@@ -48,7 +48,7 @@ fun TaskDetailsScreen(
                     IconButton(onClick = onBackClick) {
                         Icon(
                             painter = painterResource(R.drawable.ic_back),
-                            contentDescription = "Назад"
+                            contentDescription = "Back"
                         )
                     }
                 },
